@@ -7,8 +7,11 @@ use Symfony\Component\HttpFoundation\Request;
 $loader = require_once __DIR__.'/../app/autoload.php';
 require_once __DIR__.'/../app/AppKernel.php';
 
-$env = getenv('ENV') ?: 'dev';
-$debug = (int) getenv('DEBUG') === 1;
+// FIXME: Workaround for built-in server
+$_SERVER['SYMFONY__SECRET'] = getenv('SYMFONY__SECRET');
+
+$env = getenv('SYMFONY__ENV') ?: 'dev';
+$debug = (int) getenv('SYMFONY__DEBUG') === 1;
 
 if ($debug) {
     Debug::enable();

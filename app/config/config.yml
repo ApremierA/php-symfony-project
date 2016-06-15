@@ -2,9 +2,9 @@ imports:
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 framework:
-    secret: JustSomeSecret
+    secret: "%secret%"
     router:
-        resource: '%kernel.root_dir%/config/routing.yml'
+        resource: "%kernel.root_dir%/config/routing.yml"
 
 monolog:
     handlers:
