@@ -1,0 +1,7 @@
+imports:
+    - { resource: "@AppBundle/Resources/config/services.yml" }
+
+framework:
+    secret: ABC123
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
