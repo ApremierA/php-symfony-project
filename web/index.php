@@ -7,14 +7,14 @@ use Symfony\Component\HttpFoundation\Request;
 $loader = require_once __DIR__.'/../app/autoload.php';
 require_once __DIR__.'/../app/AppKernel.php';
 
-const ENV = 'dev';
-const DEBUG = true;
+$env = getenv('ENV') ?: 'dev';
+$debug = (int) getenv('DEBUG') === 1;
 
-if (DEBUG) {
+if ($debug) {
     Debug::enable();
 }
 
-$kernel = new AppKernel(ENV, DEBUG);
+$kernel = new AppKernel($env, $debug);
 $kernel->loadClassCache();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
