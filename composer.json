@@ -1,20 +1,25 @@
 {
-  "name": "chshanovskiy/locksman",
-  "license": "MIT",
-  "minimum-stability": "stable",
-  "autoload": {
-    "psr-4": {
-      "app\\": "app",
-      "AppBundle\\": "src/AppBundle"
+    "name": "chshanovskiy/locksman",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app",
+            "AppBundle\\": "src/AppBundle"
+        }
+    },
+    "require": {
+        "php": "^7.0.0",
+        "symfony/symfony": "^3.0",
+        "sensio/framework-extra-bundle": "^3.0",
+        "symfony/monolog-bundle": "^2.11"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "^3.0",
+        "itmh/php-buddy": "^0.0.3"
+    },
+    "scripts": {
+        "build": "./vendor/bin/phing",
+        "test": "./vendor/bin/phing test"
     }
-  },
-  "require": {
-    "php": "^7.0.0",
-    "symfony/symfony": "^3.0",
-    "sensio/framework-extra-bundle": "^3.0",
-    "symfony/monolog-bundle": "^2.11"
-  },
-  "require-dev": {
-    "sensio/generator-bundle": "^3.0"
-  }
 }

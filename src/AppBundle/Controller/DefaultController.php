@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
+     * Отображает главную страницу
+     *
      * @return Response
      */
     public function indexAction()
