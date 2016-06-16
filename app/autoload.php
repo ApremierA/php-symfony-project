@@ -1,5 +1,3 @@
 <?php
 
-$loader = require __DIR__.'/../vendor/autoload.php';
-
-return $loader;
+return require __DIR__.'/../vendor/autoload.php';

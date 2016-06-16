@@ -4,8 +4,8 @@
     <property name="build.dir" value="./build"/>
     <property name="build.bin" value="./vendor/bin"/>
 
-    <property name="build.argsSpace" value="src web test"/>
-    <property name="build.argsComma" value="src,web,test"/>
+    <property name="build.argsSpace" value="app src web test"/>
+    <property name="build.argsComma" value="app,src,web,test"/>
 
     <target name="build"
             depends="clean,lint,phpcs,phpcpd,pdepend,phploc,test,phpcb"

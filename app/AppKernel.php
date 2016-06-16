@@ -49,6 +49,9 @@ class AppKernel extends Kernel
      * Loads the container configuration.
      *
      * @param LoaderInterface $loader A LoaderInterface instance
+     *
+     * @return void
+     * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
@@ -59,6 +62,8 @@ class AppKernel extends Kernel
     }
 
     /**
+     * Returns root dir
+     *
      * @return string
      */
     public function getRootDir()
@@ -67,6 +72,8 @@ class AppKernel extends Kernel
     }
 
     /**
+     * Returns cache dir
+     *
      * @return string
      */
     public function getCacheDir()
@@ -75,6 +82,8 @@ class AppKernel extends Kernel
     }
 
     /**
+     * Returns log dir
+     *
      * @return string
      */
     public function getLogDir()
