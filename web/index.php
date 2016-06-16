@@ -12,7 +12,6 @@ $_SERVER['SYMFONY__SECRET'] = getenv('SYMFONY__SECRET');
 
 $env = getenv('SYMFONY__ENV') ?: 'dev';
 $debug = (int) getenv('SYMFONY__DEBUG') === 1;
-
 if ($debug) {
     Debug::enable();
 }

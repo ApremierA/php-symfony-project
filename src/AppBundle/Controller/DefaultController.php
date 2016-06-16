@@ -15,9 +15,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $this->get('logger')->info('index action...');
-        $html = file_get_contents(__DIR__.'/../Resources/views/Default/index.html');
-
-        return new Response($html);
+        return $this->render('default/index.html.twig');
     }
 }

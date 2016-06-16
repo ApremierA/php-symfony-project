@@ -8,6 +8,9 @@ use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Symfony\Bundle\DebugBundle\DebugBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
+use Symfony\Bundle\SecurityBundle\SecurityBundle;
+use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -17,7 +20,6 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class AppKernel extends Kernel
 {
-
     /**
      * Returns an array of bundles to register.
      *
@@ -27,13 +29,16 @@ class AppKernel extends Kernel
     {
         $bundles = [
             new FrameworkBundle(),
-            new SensioFrameworkExtraBundle(),
+            new SecurityBundle(),
+            new TwigBundle(),
             new MonologBundle(),
+            new SensioFrameworkExtraBundle(),
             new AppBundle(),
         ];
 
         if ($this->getEnvironment() === 'dev') {
             $bundles[] = new DebugBundle();
+            $bundles[] = new WebProfilerBundle();
             $bundles[] = new SensioGeneratorBundle();
         }
 
@@ -47,7 +52,10 @@ class AppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config.yml');
+        $env = $this->getEnvironment() === 'dev' ? '_dev' : '';
+        $config = sprintf('%s/config/config%s.yml', __DIR__, $env);
+
+        $loader->load($config);
     }
 
     /**
