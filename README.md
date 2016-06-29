@@ -14,3 +14,4 @@
     docker-compose up -d
     docker-compose exec upstream chmod 777 -R /var/www/var
     docker-compose exec upstream php /var/www/bin/console
+    docker-compose exec upstream php /var/www/bin/console cache:clear
