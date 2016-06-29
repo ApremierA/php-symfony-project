@@ -3,14 +3,18 @@
 
 ### Использование
     
-Чтобы создать новый проект, выполните команду `composer create-project itmh/php-symfony-project my-new-app`, где `my-new-app` 
+Чтобы создать новый проект, выполните команду `composer create-project itmh/php-symfony-project my-new-app`, где `my-new-app` - имя директории будущего приложения.
     
-### Окружение разработчика
+### Запуск окружения разработчика
+
+Необходимо скопировать конфигурационные файлы и настроить их по своему усмотрению. Затем установить зависимости приложения. После этого запустить контейнер и установить права на папку с временными файлами приложения.
 
     cp etc/example.docker-compose.yml docker-compose.yml
     vim docker-compose.yml
     cp etc/example.htaccess web/.htaccess
+    
     composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs -vv
+    
     docker-compose up -d
     docker-compose exec upstream chmod 777 -R /var/www/var
     docker-compose exec upstream php /var/www/bin/console
