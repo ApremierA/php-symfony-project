@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "63bbefd8972ddd57e364b269af39b8ca",
-    "content-hash": "8e536d7545a0bc9db78c51f0b0bbee8c",
+    "hash": "98117a043cf59ceb23c58f84c88eb543",
+    "content-hash": "8aa681eb444a8e6570aa826d00d423eb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1275,20 +1275,21 @@
         },
         {
             "name": "itmh/coding-standard-php",
-            "version": "v0.1.2",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itmh/coding-standard-php.git",
-                "reference": "349fe8036bca2179298c5e5a0ce7efb33dbd55ed"
+                "reference": "ef2d1e0966dfb58c6e88c5aacab199fbff1bb880"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itmh/coding-standard-php/zipball/349fe8036bca2179298c5e5a0ce7efb33dbd55ed",
-                "reference": "349fe8036bca2179298c5e5a0ce7efb33dbd55ed",
+                "url": "https://api.github.com/repos/itmh/coding-standard-php/zipball/ef2d1e0966dfb58c6e88c5aacab199fbff1bb880",
+                "reference": "ef2d1e0966dfb58c6e88c5aacab199fbff1bb880",
                 "shasum": ""
             },
             "require-dev": {
-                "squizlabs/php_codesniffer": "~2.5"
+                "phpmd/phpmd": "^2.4",
+                "squizlabs/php_codesniffer": "^2.5"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -1301,26 +1302,67 @@
                     "email": "chshanovskiy.maxim@itmh.ru"
                 }
             ],
-            "description": "ITMH PHP_CodeSniffer standard",
-            "time": "2016-03-16 08:36:08"
+            "description": "ITMH coding standards",
+            "time": "2016-06-29 08:01:36"
         },
         {
-            "name": "itmh/php-buddy",
-            "version": "0.0.3",
+            "name": "itmh/cyclophp",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/itmh/php-buddy.git",
-                "reference": "1de2ad0e51a28c353e806705c2220ff70960d29d"
+                "url": "https://github.com/itmh/cyclophp.git",
+                "reference": "cf11a94fb001252d4ba6ab3fbd5e605817f51e0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itmh/php-buddy/zipball/1de2ad0e51a28c353e806705c2220ff70960d29d",
-                "reference": "1de2ad0e51a28c353e806705c2220ff70960d29d",
+                "url": "https://api.github.com/repos/itmh/cyclophp/zipball/cf11a94fb001252d4ba6ab3fbd5e605817f51e0b",
+                "reference": "cf11a94fb001252d4ba6ab3fbd5e605817f51e0b",
                 "shasum": ""
             },
             "require": {
-                "itmh/coding-standard-php": "^0.1.0",
-                "itmh/where-is-my-coverage": "^1.2",
+                "nikic/php-parser": "^2.1",
+                "symfony/console": "^3.1",
+                "symfony/finder": "^3.1"
+            },
+            "bin": [
+                "cyclophp"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cyclophp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chshanovskiy Maxim",
+                    "email": "chshanovskiy.maxim@itmh.ru"
+                }
+            ],
+            "description": "Инструмент для подсчёта цикломатики публичных методов",
+            "time": "2016-06-23 12:37:32"
+        },
+        {
+            "name": "itmh/php-buddy",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itmh/php-buddy.git",
+                "reference": "d0ab100b7fac70344aba6149544bd16eb997d77a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itmh/php-buddy/zipball/d0ab100b7fac70344aba6149544bd16eb997d77a",
+                "reference": "d0ab100b7fac70344aba6149544bd16eb997d77a",
+                "shasum": ""
+            },
+            "require": {
+                "itmh/coding-standard-php": "1.0.*",
+                "itmh/cyclophp": "^1.0",
                 "jakub-onderka/php-parallel-lint": "^0.9.2",
                 "mayflower/php-codebrowser": "^1.1",
                 "pdepend/pdepend": "^2.2",
@@ -1343,48 +1385,7 @@
                 }
             ],
             "description": "Пакет необходимых инструментов анализа и тестирования php кода",
-            "time": "2016-03-15 09:46:00"
-        },
-        {
-            "name": "itmh/where-is-my-coverage",
-            "version": "v1.2.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/itmh/where-is-my-coverage.git",
-                "reference": "ac6bfa09e19c92e2c0c3c7f33b181b5ec69c237c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/itmh/where-is-my-coverage/zipball/ac6bfa09e19c92e2c0c3c7f33b181b5ec69c237c",
-                "reference": "ac6bfa09e19c92e2c0c3c7f33b181b5ec69c237c",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "~2.0",
-                "symfony/console": "~3.0",
-                "symfony/finder": "~3.0"
-            },
-            "bin": [
-                "wimc"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WhereIsMyCoverage\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chshanovskiy Maxim",
-                    "email": "chshanovskiy.maxim@itmh.ru"
-                }
-            ],
-            "description": "Tool for searching methods without tests",
-            "time": "2015-12-23 08:02:03"
+            "time": "2016-06-29 08:08:15"
         },
         {
             "name": "jakub-onderka/php-parallel-lint",

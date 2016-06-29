@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "itmh/php-buddy": "^0.0.3"
+        "itmh/php-buddy": "^1.0.0"
     },
     "scripts": {
         "build": "./vendor/bin/phing",

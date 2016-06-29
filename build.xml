@@ -5,10 +5,11 @@
     <property name="build.bin" value="./vendor/bin"/>
 
     <property name="build.argsSpace" value="app src web test"/>
+    <property name="build.argsSpaceNoTest" value="app src web"/>
     <property name="build.argsComma" value="app,src,web,test"/>
 
     <target name="build"
-            depends="clean,lint,phpcs,phpcpd,pdepend,phploc,test,phpcb"
+            depends="clean,lint,phpcs,phpcpd,phpmd,pdepend,phploc,cyclophp,test,phpcb"
             description="Запуск тестов и инструментов анализа">
     </target>
 
@@ -50,7 +51,7 @@
             <arg line="${build.argsSpace}"/>
             <arg line="--report-checkstyle=${build.dir}/phpcs/report.xml"/>
             <arg line="--encoding=UTF-8"/>
-            <arg line="--standard=./vendor/itmh/coding-standard-php/ITMH"/>
+            <arg line="--standard=./vendor/itmh/coding-standard-php/phpcs/ITMH"/>
             <arg line="--extensions=php"/>
             <arg line="--report-summary"/>
             <arg line="--report-width=auto"/>
@@ -73,7 +74,7 @@
         <exec passthru="true"
               executable="${build.bin}/phpmd">
             <arg line="${build.argsComma}"/>
-            <arg line="xml cleancode,codesize,controversial,design,naming,unusedcode"/>
+            <arg line="xml ./vendor/itmh/coding-standard-php/phpmd/ruleset.xml"/>
             <arg line="--reportfile ${build.dir}/phpmd/report.xml"/>
             <arg line="--exclude vendor"/>
         </exec>
@@ -103,6 +104,18 @@
             <arg line="--exclude=tests"/>
             <arg line="--"/>
             <arg line="${build.argsSpace}"/>
+        </exec>
+    </target>
+
+    <target name="cyclophp" depends="init"
+            description="Поиск методов с наибольшей цикломатической сложностью">
+        <exec passthru="true"
+              checkreturn="false"
+              executable="${build.bin}/cyclophp">
+            <arg line="run"/>
+            <arg line="${build.argsSpaceNoTest}"/>
+            <arg line="--no-ansi"/>
+            <arg line="--threshold=4"/>
         </exec>
     </target>
 
