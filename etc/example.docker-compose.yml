@@ -3,7 +3,7 @@ version: '2'
 services:
 
   upstream:
-    image: repo.itmh.io:443/arms/php7-apache
+    image: repo.itmh.io/arms/php7-apache
     ports:
       - "11180:80"
     volumes:
