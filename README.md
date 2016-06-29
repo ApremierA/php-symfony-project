@@ -19,3 +19,8 @@
     docker-compose exec upstream chmod 777 -R /var/www/var
     docker-compose exec upstream php /var/www/bin/console
     docker-compose exec upstream php /var/www/bin/console cache:clear
+    
+### Запуск сборки
+
+    composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs -vv
+    composer build
