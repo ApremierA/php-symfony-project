@@ -1,5 +1,6 @@
 {
-    "name": "chshanovskiy/locksman",
+    "name": "itmh/php-symfony-project",
+    "type": "project",
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
