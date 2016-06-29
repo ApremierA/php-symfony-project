@@ -1,4 +1,4 @@
-# Болванка PHP проекта на Symfony
+# Болванка проекта на PHP7/Symfony3
 [![Latest Stable Version](https://img.shields.io/packagist/v/itmh/php-symfony-project.svg?style=flat-square)](https://packagist.org/packages/itmh/php-symfony-project)
 
 ### Использование
