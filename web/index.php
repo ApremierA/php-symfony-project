@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 $loader = include_once __DIR__.'/../app/autoload.php';
 require_once __DIR__.'/../app/AppKernel.php';
 
-// FIXME: Workaround for built-in server
+// FIXME
 $_SERVER['SYMFONY__SECRET'] = getenv('SYMFONY__SECRET');
 
 $env = getenv('SYMFONY__ENV') ?: 'dev';
