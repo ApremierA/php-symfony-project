@@ -1,8 +1,8 @@
-## Environment variables
+# Заготовка PHP проекта на Symfony
 
-`SYMFONY__ENV`, `SYMFONY__DEBUG`, `SYMFONY__SECRET`
-
-## Usage
+### Использование
     
-    composer create-project itmh/php-symfony-project my-new-app
+Чтобы создать новый проект, выполните команду `composer create-project itmh/php-symfony-project my-new-app`, где `my-new-app` 
     
+Выпо
+    docker-compose exec upstream php /var/www/bin/console
