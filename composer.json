@@ -1,26 +1,31 @@
 {
-    "name": "itmh/php-symfony-project",
-    "type": "project",
-    "license": "MIT",
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "app\\": "app",
-            "AppBundle\\": "src/AppBundle"
-        }
-    },
-    "require": {
-        "php": "^7.0.0",
-        "symfony/symfony": "^3.0",
-        "sensio/framework-extra-bundle": "^3.0",
-        "symfony/monolog-bundle": "^2.11"
-    },
-    "require-dev": {
-        "sensio/generator-bundle": "^3.0",
-        "itmh/php-buddy": "^1.0.0"
-    },
-    "scripts": {
-        "build": "./vendor/bin/phing",
-        "test": "./vendor/bin/phing test"
+  "name": "itmh/php-symfony-project",
+  "type": "project",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "AppBundle\\": "src/AppBundle"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "test"
+    }
+  },
+  "require": {
+    "php": "^7.0.0",
+    "symfony/symfony": "^3.0",
+    "sensio/framework-extra-bundle": "^3.0",
+    "symfony/monolog-bundle": "^2.11"
+  },
+  "require-dev": {
+    "sensio/generator-bundle": "^3.0",
+    "symfony/phpunit-bridge": "^3.1",
+    "itmh/php-buddy": "^1.0.0"
+  },
+  "scripts": {
+    "build": "./vendor/bin/phing",
+    "test": "./vendor/bin/phing test"
+  }
 }

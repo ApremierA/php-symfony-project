@@ -1,7 +1,5 @@
 <?php
 
-namespace app;
-
 use AppBundle\AppBundle;
 use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
@@ -20,6 +18,8 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class AppKernel extends Kernel
 {
+    const NON_PROD_ENV = ['dev', 'test'];
+
     /**
      * Returns an array of bundles to register.
      *
@@ -36,7 +36,7 @@ class AppKernel extends Kernel
             new AppBundle(),
         ];
 
-        if ($this->getEnvironment() === 'dev') {
+        if (in_array($this->getEnvironment(), self::NON_PROD_ENV, true)) {
             $bundles[] = new DebugBundle();
             $bundles[] = new WebProfilerBundle();
             $bundles[] = new SensioGeneratorBundle();
@@ -55,10 +55,12 @@ class AppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $env = $this->getEnvironment() === 'dev' ? '_dev' : '';
-        $config = sprintf('%s/config/config%s.yml', __DIR__, $env);
+        $env = '';
+        if (in_array($this->getEnvironment(), self::NON_PROD_ENV, true)) {
+            $env = sprintf('_%s', $this->getEnvironment());
+        }
 
-        $loader->load($config);
+        $loader->load($this->getRootDir().'/config/config'.$env.'.yml');
     }
 
     /**

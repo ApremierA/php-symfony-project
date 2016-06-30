@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.4/phpunit.xsd"
-    bootstrap="test/bootstrap.php"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.4/phpunit.xsd"
+        bootstrap="test/bootstrap.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
 >
+    <php>
+        <server name="KERNEL_DIR" value="app"/>
+        <server name="SYMFONY__SECRET" value="test"/>
+    </php>
+
     <testsuites>
         <testsuite name="Tests">
             <directory suffix=".php">test</directory>
